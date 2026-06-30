@@ -1,0 +1,59 @@
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SOURCE /docker-entrypoint-initdb.d/01_Database_Setup.sql;
+Query OK, 8 rows affected (0.11 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Database changed
++-------------------------+
+| current_database        |
++-------------------------+
+| enterprise_ecommerce_db |
++-------------------------+
+1 row in set (0.00 sec)
+
++-------------------------+
+| Database                |
++-------------------------+
+| enterprise_ecommerce_db |
+| information_schema      |
+| mysql                   |
+| performance_schema      |
+| sys                     |
++-------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SHOW DATABASES;
++-------------------------+
+| Database                |
++-------------------------+
+| enterprise_ecommerce_db |
+| information_schema      |
+| mysql                   |
+| performance_schema      |
+| sys                     |
++-------------------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT DATABASE();
++-------------------------+
+| DATABASE()              |
++-------------------------+
+| enterprise_ecommerce_db |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> ^C
+mysql> 
