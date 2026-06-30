@@ -57,3 +57,943 @@ mysql> SELECT DATABASE();
 
 mysql> ^C
 mysql> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2026-06-30 09:04:18 |
+|           3 | Priya      | Singh     | priya@gmail.com  | 9876543212 | Lucknow   | 2026-06-30 09:04:18 |
+|           4 | Neha       | Gupta     | neha@gmail.com   | 9876543213 | Jaipur    | 2026-06-30 09:04:18 |
+|           5 | Rohit      | Yadav     | rohit@gmail.com  | 9876543214 | Pune      | 2026-06-30 09:04:18 |
+|           6 | Anjali     | Kapoor    | anjali@gmail.com | 9876543215 | Delhi     | 2026-06-30 09:04:18 |
+|           7 | Karan      | Malhotra  | karan@gmail.com  | 9876543216 | Noida     | 2026-06-30 09:04:18 |
+|           8 | Sneha      | Patel     | sneha@gmail.com  | 9876543217 | Ahmedabad | 2026-06-30 09:04:18 |
+|           9 | Vikas      | Mehta     | vikas@gmail.com  | 9876543218 | Indore    | 2026-06-30 09:04:18 |
+|          10 | Pooja      | Jain      | pooja@gmail.com  | 9876543219 | Bhopal    | 2026-06-30 09:04:18 |
++-------------+------------+-----------+------------------+------------+-----------+---------------------+
+10 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
++------------+--------------------+------------+----------------+
+| product_id | product_name       | unit_price | stock_quantity |
++------------+--------------------+------------+----------------+
+|          3 | OnePlus 13         |   64999.00 |             33 |
+|          2 | Samsung Galaxy S25 |   79999.00 |             40 |
+|          1 | iPhone 16          |   89999.00 |             49 |
++------------+--------------------+------------+----------------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++-------------+------------+-----------+------------------+------------+-------+---------------------+
+| customer_id | first_name | last_name | email            | phone      | city  | created_at          |
++-------------+------------+-----------+------------------+------------+-------+---------------------+
+|           6 | Anjali     | Kapoor    | anjali@gmail.com | 9876543215 | Delhi | 2026-06-30 09:04:18 |
++-------------+------------+-----------+------------------+------------+-------+---------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
++--------+
+| @total |
++--------+
+|     10 |
++--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
++--------+
+| @stock |
++--------+
+|    732 |
++--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
++---------------+----------+
+| employee_name | salary   |
++---------------+----------+
+| Raj Kumar     | 40000.00 |
++---------------+----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++--------------+-------------+---------------+
+| total_orders | total_sales | average_order |
++--------------+-------------+---------------+
+|           10 |   360289.00 |  36028.900000 |
++--------------+-------------+---------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/19_Functions_UDF.sql
+Database changed
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
++--------------------+------------+----------------+
+| product_name       | unit_price | price_with_gst |
++--------------------+------------+----------------+
+| iPhone 16          |   90999.00 |      107378.82 |
+| Samsung Galaxy S25 |   79999.00 |       94398.82 |
+| OnePlus 13         |   64999.00 |       76698.82 |
+| Dell Inspiron      |   58999.00 |       69618.82 |
+| HP Pavilion        |   62999.00 |       74338.82 |
+| Lenovo ThinkPad    |   75999.00 |       89678.82 |
+| Sony Headphones    |    9999.00 |       11798.82 |
+| Boat Speaker       |    3499.00 |        4128.82 |
+| Men T-Shirt        |     799.00 |         942.82 |
+| Nike Shoes         |    4999.00 |        5898.82 |
+| Washing Machine    |   25999.00 |       30678.82 |
+| Microwave Oven     |   14999.00 |       17698.82 |
++--------------------+------------+----------------+
+12 rows in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
++-------------+----------------+
+| customer_id | customer_name  |
++-------------+----------------+
+|           1 | Rahul Sharma   |
+|           2 | Amit Verma     |
+|           3 | Priya Singh    |
+|           4 | Neha Gupta     |
+|           5 | Rohit Yadav    |
+|           6 | Anjali Kapoor  |
+|           7 | Karan Malhotra |
+|           8 | Sneha Patel    |
+|           9 | Vikas Mehta    |
+|          10 | Pooja Jain     |
++-------------+----------------+
+10 rows in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++--------------------+------------+------------------+
+| product_name       | unit_price | discounted_price |
++--------------------+------------+------------------+
+| iPhone 16          |   90999.00 |         81899.10 |
+| Samsung Galaxy S25 |   79999.00 |         71999.10 |
+| OnePlus 13         |   64999.00 |         58499.10 |
+| Dell Inspiron      |   58999.00 |         53099.10 |
+| HP Pavilion        |   62999.00 |         56699.10 |
+| Lenovo ThinkPad    |   75999.00 |         68399.10 |
+| Sony Headphones    |    9999.00 |          8999.10 |
+| Boat Speaker       |    3499.00 |          3149.10 |
+| Men T-Shirt        |     799.00 |           719.10 |
+| Nike Shoes         |    4999.00 |          4499.10 |
+| Washing Machine    |   25999.00 |         23399.10 |
+| Microwave Oven     |   14999.00 |         13499.10 |
++--------------------+------------+------------------+
+12 rows in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
++---------------+----------+---------------+
+| employee_name | salary   | annual_salary |
++---------------+----------+---------------+
+| Raj Kumar     | 40000.00 |     480000.00 |
+| Ankit Singh   | 55000.00 |     660000.00 |
+| Ravi Sharma   | 36000.00 |     432000.00 |
+| Meena Gupta   | 48000.00 |     576000.00 |
+| Suresh Patel  | 30000.00 |     360000.00 |
++---------------+----------+---------------+
+5 rows in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++--------------------+----------------+--------------+
+| product_name       | stock_quantity | stock_status |
++--------------------+----------------+--------------+
+| iPhone 16          |             49 | Available    |
+| Samsung Galaxy S25 |             40 | Available    |
+| OnePlus 13         |             33 | Available    |
+| Dell Inspiron      |             17 | Low Stock    |
+| HP Pavilion        |             18 | Low Stock    |
+| Lenovo ThinkPad    |             15 | Low Stock    |
+| Sony Headphones    |            100 | Available    |
+| Boat Speaker       |            150 | Available    |
+| Men T-Shirt        |            200 | Available    |
+| Nike Shoes         |             80 | Available    |
+| Washing Machine    |             12 | Low Stock    |
+| Microwave Oven     |             18 | Low Stock    |
++--------------------+----------------+--------------+
+12 rows in set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++----------+--------------+----------------+
+| order_id | total_amount | order_category |
++----------+--------------+----------------+
+|        1 |     97998.00 | Premium        |
+|        2 |     58999.00 | Premium        |
+|        3 |      9999.00 | Basic          |
+|        4 |      4999.00 | Basic          |
+|        5 |     25999.00 | Standard       |
+|        6 |     14999.00 | Basic          |
+|        7 |     79999.00 | Premium        |
+|        8 |      3499.00 | Basic          |
+|        9 |       799.00 | Basic          |
+|       10 |     62999.00 | Premium        |
++----------+--------------+----------------+
+10 rows in set (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/20_Triggers.sql
+Database changed
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+
++----------+-------------+------------+------------------------------+---------------------+
+| audit_id | action_type | table_name | description                  | action_time         |
++----------+-------------+------------+------------------------------+---------------------+
+|        1 | INSERT      | customers  | Customer Added : Demo User   | 2026-06-30 09:51:28 |
+|        2 | UPDATE      | products   | Updated Product : iPhone 16  | 2026-06-30 09:51:28 |
+|        3 | DELETE      | customers  | Deleted Customer : Demo User | 2026-06-30 09:51:28 |
++----------+-------------+------------+------------------------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/21_Events.sql
+Database changed
+Query OK, 0 rows affected (0.00 sec)
+
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| event_scheduler | ON    |
++-----------------+-------+
+1 row in set (0.04 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
++-------------------------+-----------------------+----------------+-----------+-----------+------------+----------------+----------------+---------------------+------+---------+------------+----------------------+----------------------+--------------------+
+| Db                      | Name                  | Definer        | Time zone | Type      | Execute at | Interval value | Interval field | Starts              | Ends | Status  | Originator | character_set_client | collation_connection | Database Collation |
++-------------------------+-----------------------+----------------+-----------+-----------+------------+----------------+----------------+---------------------+------+---------+------------+----------------------+----------------------+--------------------+
+| enterprise_ecommerce_db | ev_daily_order_report | root@localhost | SYSTEM    | RECURRING | NULL       | 1              | DAY            | 2026-06-30 09:51:44 | NULL | ENABLED |          1 | latin1               | latin1_swedish_ci    | utf8mb4_unicode_ci |
+| enterprise_ecommerce_db | ev_daily_stock_check  | root@localhost | SYSTEM    | RECURRING | NULL       | 1              | DAY            | 2026-06-30 09:51:44 | NULL | ENABLED |          1 | latin1               | latin1_swedish_ci    | utf8mb4_unicode_ci |
+| enterprise_ecommerce_db | ev_delete_old_logs    | root@localhost | SYSTEM    | RECURRING | NULL       | 1              | MONTH          | 2026-06-30 09:51:44 | NULL | ENABLED |          1 | latin1               | latin1_swedish_ci    | utf8mb4_unicode_ci |
+| enterprise_ecommerce_db | ev_salary_increment   | root@localhost | SYSTEM    | RECURRING | NULL       | 1              | MONTH          | 2026-06-30 09:51:44 | NULL | ENABLED |          1 | latin1               | latin1_swedish_ci    | utf8mb4_unicode_ci |
++-------------------------+-----------------------+----------------+-----------+-----------+------------+----------------+----------------+---------------------+------+---------+------------+----------------------+----------------------+--------------------+
+4 rows in set (0.00 sec)
+
++----------------------+-----------------------------------------------------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------------------+--------------------+
+| Event                | sql_mode                                                                                                              | time_zone | Create Event                                                                                                                                                                                                                                                            | character_set_client | collation_connection | Database Collation |
++----------------------+-----------------------------------------------------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------------------+--------------------+
+| ev_daily_stock_check | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | SYSTEM    | CREATE DEFINER=`root`@`localhost` EVENT `ev_daily_stock_check` ON SCHEDULE EVERY 1 DAY STARTS '2026-06-30 09:51:44' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+
+    UPDATE products
+
+    SET stock_status = 'Low Stock'
+
+    WHERE stock_quantity < reorder_level;
+
+END | latin1               | latin1_swedish_ci    | utf8mb4_unicode_ci |
++----------------------+-----------------------------------------------------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/22_Reports.sql
+Database changed
++-------------+----------------+-----------+------------------+
+| customer_id | customer_name  | city      | email            |
++-------------+----------------+-----------+------------------+
+|           2 | Amit Verma     | Mumbai    | amit@gmail.com   |
+|           6 | Anjali Kapoor  | Delhi     | anjali@gmail.com |
+|           7 | Karan Malhotra | Noida     | karan@gmail.com  |
+|           4 | Neha Gupta     | Jaipur    | neha@gmail.com   |
+|          10 | Pooja Jain     | Bhopal    | pooja@gmail.com  |
+|           3 | Priya Singh    | Lucknow   | priya@gmail.com  |
+|           1 | Rahul Sharma   | Gurgaon   | rahul@gmail.com  |
+|           5 | Rohit Yadav    | Pune      | rohit@gmail.com  |
+|           8 | Sneha Patel    | Ahmedabad | sneha@gmail.com  |
+|           9 | Vikas Mehta    | Indore    | vikas@gmail.com  |
++-------------+----------------+-----------+------------------+
+10 rows in set (0.00 sec)
+
++------------+--------------------+------------+----------------+
+| product_id | product_name       | unit_price | stock_quantity |
++------------+--------------------+------------+----------------+
+|          1 | iPhone 16          |   91099.00 |             49 |
+|          2 | Samsung Galaxy S25 |   79999.00 |             40 |
+|          6 | Lenovo ThinkPad    |   75999.00 |             15 |
+|          3 | OnePlus 13         |   64999.00 |             33 |
+|          5 | HP Pavilion        |   62999.00 |             18 |
+|          4 | Dell Inspiron      |   58999.00 |             17 |
+|         11 | Washing Machine    |   25999.00 |             12 |
+|         12 | Microwave Oven     |   14999.00 |             18 |
+|          7 | Sony Headphones    |    9999.00 |            100 |
+|         10 | Nike Shoes         |    4999.00 |             80 |
+|          8 | Boat Speaker       |    3499.00 |            150 |
+|          9 | Men T-Shirt        |     799.00 |            200 |
++------------+--------------------+------------+----------------+
+12 rows in set (0.00 sec)
+
++-----------------+----------------+
+| category_name   | total_products |
++-----------------+----------------+
+| Mobile          |              3 |
+| Laptop          |              3 |
+| Electronics     |              2 |
+| Fashion         |              2 |
+| Home Appliances |              2 |
+| Books           |              0 |
++-----------------+----------------+
+6 rows in set (0.00 sec)
+
++---------------+--------------+-------------+
+| employee_name | total_orders | total_sales |
++---------------+--------------+-------------+
+| Raj Kumar     |            3 |   187996.00 |
+| Ankit Singh   |            3 |    85797.00 |
+| Ravi Sharma   |            2 |    67998.00 |
+| Meena Gupta   |            1 |    14999.00 |
+| Suresh Patel  |            1 |     3499.00 |
++---------------+--------------+-------------+
+5 rows in set (0.00 sec)
+
++--------------+--------------+-------------+
+| order_status | total_orders | total_sales |
++--------------+--------------+-------------+
+| Confirmed    |            2 |   123997.00 |
+| Delivered    |            4 |   154796.00 |
+| Shipped      |            2 |    14998.00 |
+| Cancelled    |            1 |     3499.00 |
+| Pending      |            1 |    62999.00 |
++--------------+--------------+-------------+
+5 rows in set (0.00 sec)
+
++----------------+----------------+----------------+--------------+
+| payment_method | payment_status | total_payments | total_amount |
++----------------+----------------+----------------+--------------+
+| UPI            | Success        |              2 |    123997.00 |
+| Credit Card    | Success        |              2 |    138998.00 |
+| Debit Card     | Success        |              1 |      9999.00 |
+| Cash           | Success        |              2 |      5798.00 |
+| Net Banking    | Success        |              1 |     14999.00 |
+| UPI            | Refunded       |              1 |      3499.00 |
+| Debit Card     | Pending        |              1 |     62999.00 |
++----------------+----------------+----------------+--------------+
+7 rows in set (0.00 sec)
+
++----------------+--------------+-------------+
+| customer_name  | total_orders | total_spent |
++----------------+--------------+-------------+
+| Rahul Sharma   |            1 |    97998.00 |
+| Amit Verma     |            1 |    58999.00 |
+| Priya Singh    |            1 |     9999.00 |
+| Neha Gupta     |            1 |     4999.00 |
+| Rohit Yadav    |            1 |    25999.00 |
+| Anjali Kapoor  |            1 |    14999.00 |
+| Karan Malhotra |            1 |    79999.00 |
+| Sneha Patel    |            1 |     3499.00 |
+| Vikas Mehta    |            1 |      799.00 |
+| Pooja Jain     |            1 |    62999.00 |
++----------------+--------------+-------------+
+10 rows in set (0.00 sec)
+
++--------------------+------------+
+| product_name       | unit_price |
++--------------------+------------+
+| iPhone 16          |   91099.00 |
+| Samsung Galaxy S25 |   79999.00 |
+| Lenovo ThinkPad    |   75999.00 |
+| OnePlus 13         |   64999.00 |
+| HP Pavilion        |   62999.00 |
++--------------------+------------+
+5 rows in set (0.00 sec)
+
+ERROR 1054 (42S22): Unknown column 'reorder_level' in 'field list'
++---------------+---------------+---------------+--------------+
+| total_revenue | average_order | highest_order | lowest_order |
++---------------+---------------+---------------+--------------+
+|     360289.00 |  36028.900000 |      97998.00 |       799.00 |
++---------------+---------------+---------------+--------------+
+1 row in set (0.00 sec)
+
++--------------+--------------+---------------+
+| month_number | total_orders | monthly_sales |
++--------------+--------------+---------------+
+|            1 |           10 |     360289.00 |
++--------------+--------------+---------------+
+1 row in set (0.00 sec)
+
++-----------------+-----------+
+| category_name   | revenue   |
++-----------------+-----------+
+| Mobile          | 169998.00 |
+| Laptop          | 121998.00 |
+| Home Appliances |  40998.00 |
+| Electronics     |  21497.00 |
+| Fashion         |   5798.00 |
++-----------------+-----------+
+5 rows in set (0.00 sec)
+
++--------------------+----------------+
+| product_name       | total_quantity |
++--------------------+----------------+
+| Sony Headphones    |              2 |
+| iPhone 16          |              1 |
+| Dell Inspiron      |              1 |
+| Nike Shoes         |              1 |
+| Washing Machine    |              1 |
+| Microwave Oven     |              1 |
+| Samsung Galaxy S25 |              1 |
+| Boat Speaker       |              1 |
+| Men T-Shirt        |              1 |
+| HP Pavilion        |              1 |
++--------------------+----------------+
+10 rows in set (0.00 sec)
+
++-----------------+----------------+--------------+-------------+
+| total_customers | total_products | total_orders | total_sales |
++-----------------+----------------+--------------+-------------+
+|              10 |             12 |           10 |   360289.00 |
++-----------------+----------------+--------------+-------------+
+1 row in set (0.00 sec)
+
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+| order_id | customer       | product_name       | quantity | line_total | payment_method | payment_status | employee_name |
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+|        1 | Rahul Sharma   | iPhone 16          |        1 |   89999.00 | UPI            | Success        | Raj Kumar     |
+|        1 | Rahul Sharma   | Sony Headphones    |        1 |    7999.00 | UPI            | Success        | Raj Kumar     |
+|        2 | Amit Verma     | Dell Inspiron      |        1 |   58999.00 | Credit Card    | Success        | Ankit Singh   |
+|        3 | Priya Singh    | Sony Headphones    |        1 |    9999.00 | Debit Card     | Success        | Raj Kumar     |
+|        4 | Neha Gupta     | Nike Shoes         |        1 |    4999.00 | Cash           | Success        | Ravi Sharma   |
+|        5 | Rohit Yadav    | Washing Machine    |        1 |   25999.00 | UPI            | Success        | Ankit Singh   |
+|        6 | Anjali Kapoor  | Microwave Oven     |        1 |   14999.00 | Net Banking    | Success        | Meena Gupta   |
+|        7 | Karan Malhotra | Samsung Galaxy S25 |        1 |   79999.00 | Credit Card    | Success        | Raj Kumar     |
+|        8 | Sneha Patel    | Boat Speaker       |        1 |    3499.00 | UPI            | Refunded       | Suresh Patel  |
+|        9 | Vikas Mehta    | Men T-Shirt        |        1 |     799.00 | Cash           | Success        | Ankit Singh   |
+|       10 | Pooja Jain     | HP Pavilion        |        1 |   62999.00 | Debit Card     | Pending        | Ravi Sharma   |
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+11 rows in set (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/23_Dashboard_Queries.sql
+Database changed
++-----------------+----------------+--------------+-----------------+---------------+
+| total_customers | total_products | total_orders | total_employees | total_revenue |
++-----------------+----------------+--------------+-----------------+---------------+
+|              10 |             12 |           10 |               5 |     360289.00 |
++-----------------+----------------+--------------+-----------------+---------------+
+1 row in set (0.00 sec)
+
++----------+------------+--------------+---------------+
+| month_no | month_name | total_orders | monthly_sales |
++----------+------------+--------------+---------------+
+|        1 | January    |           10 |     360289.00 |
++----------+------------+--------------+---------------+
+1 row in set (0.00 sec)
+
++-------------+----------------+--------------+-------------+
+| customer_id | customer_name  | total_orders | total_spent |
++-------------+----------------+--------------+-------------+
+|           1 | Rahul Sharma   |            1 |    97998.00 |
+|           7 | Karan Malhotra |            1 |    79999.00 |
+|          10 | Pooja Jain     |            1 |    62999.00 |
+|           2 | Amit Verma     |            1 |    58999.00 |
+|           5 | Rohit Yadav    |            1 |    25999.00 |
+|           6 | Anjali Kapoor  |            1 |    14999.00 |
+|           3 | Priya Singh    |            1 |     9999.00 |
+|           4 | Neha Gupta     |            1 |     4999.00 |
+|           8 | Sneha Patel    |            1 |     3499.00 |
+|           9 | Vikas Mehta    |            1 |      799.00 |
++-------------+----------------+--------------+-------------+
+10 rows in set (0.00 sec)
+
++--------------------+----------------+----------+
+| product_name       | total_quantity | revenue  |
++--------------------+----------------+----------+
+| iPhone 16          |              1 | 89999.00 |
+| Samsung Galaxy S25 |              1 | 79999.00 |
+| HP Pavilion        |              1 | 62999.00 |
+| Dell Inspiron      |              1 | 58999.00 |
+| Washing Machine    |              1 | 25999.00 |
+| Sony Headphones    |              2 | 17998.00 |
+| Microwave Oven     |              1 | 14999.00 |
+| Nike Shoes         |              1 |  4999.00 |
+| Boat Speaker       |              1 |  3499.00 |
+| Men T-Shirt        |              1 |   799.00 |
++--------------------+----------------+----------+
+10 rows in set (0.00 sec)
+
++-----------------+-------------+
+| category_name   | total_sales |
++-----------------+-------------+
+| Mobile          |   169998.00 |
+| Laptop          |   121998.00 |
+| Home Appliances |    40998.00 |
+| Electronics     |    21497.00 |
+| Fashion         |     5798.00 |
++-----------------+-------------+
+5 rows in set (0.00 sec)
+
++---------------+--------------+-------------+
+| employee_name | total_orders | total_sales |
++---------------+--------------+-------------+
+| Raj Kumar     |            3 |   187996.00 |
+| Ankit Singh   |            3 |    85797.00 |
+| Ravi Sharma   |            2 |    67998.00 |
+| Meena Gupta   |            1 |    14999.00 |
+| Suresh Patel  |            1 |     3499.00 |
++---------------+--------------+-------------+
+5 rows in set (0.00 sec)
+
++----------------+--------------------+--------------+
+| payment_method | total_transactions | total_amount |
++----------------+--------------------+--------------+
+| UPI            |                  3 |    127496.00 |
+| Credit Card    |                  2 |    138998.00 |
+| Debit Card     |                  2 |     72998.00 |
+| Cash           |                  2 |      5798.00 |
+| Net Banking    |                  1 |     14999.00 |
++----------------+--------------------+--------------+
+5 rows in set (0.00 sec)
+
+ERROR 1054 (42S22): Unknown column 'reorder_level' in 'field list'
++--------------+--------------+-------------+
+| order_status | total_orders | total_sales |
++--------------+--------------+-------------+
+| Confirmed    |            2 |   123997.00 |
+| Delivered    |            4 |   154796.00 |
+| Shipped      |            2 |    14998.00 |
+| Cancelled    |            1 |     3499.00 |
+| Pending      |            1 |    62999.00 |
++--------------+--------------+-------------+
+5 rows in set (0.00 sec)
+
++---------------+---------------+---------------+--------------+
+| total_revenue | average_order | highest_order | lowest_order |
++---------------+---------------+---------------+--------------+
+|     360289.00 |  36028.900000 |      97998.00 |       799.00 |
++---------------+---------------+---------------+--------------+
+1 row in set (0.00 sec)
+
++---------------------+--------------+-------------+
+| order_date          | total_orders | daily_sales |
++---------------------+--------------+-------------+
+| 2026-01-05 00:00:00 |            1 |    97998.00 |
+| 2026-01-06 00:00:00 |            1 |    58999.00 |
+| 2026-01-08 00:00:00 |            1 |     9999.00 |
+| 2026-01-10 00:00:00 |            1 |     4999.00 |
+| 2026-01-12 00:00:00 |            1 |    25999.00 |
+| 2026-01-14 00:00:00 |            1 |    14999.00 |
+| 2026-01-16 00:00:00 |            1 |    79999.00 |
+| 2026-01-18 00:00:00 |            1 |     3499.00 |
+| 2026-01-20 00:00:00 |            1 |      799.00 |
+| 2026-01-22 00:00:00 |            1 |    62999.00 |
++---------------------+--------------+-------------+
+10 rows in set (0.00 sec)
+
++-----------+-----------------+
+| city      | total_customers |
++-----------+-----------------+
+| Gurgaon   |               1 |
+| Mumbai    |               1 |
+| Lucknow   |               1 |
+| Jaipur    |               1 |
+| Pune      |               1 |
+| Delhi     |               1 |
+| Noida     |               1 |
+| Ahmedabad |               1 |
+| Indore    |               1 |
+| Bhopal    |               1 |
++-----------+-----------------+
+10 rows in set (0.00 sec)
+
+ERROR 1054 (42S22): Unknown column 'cost_price' in 'field list'
++----------------+-------------+---------------+---------------+--------------+
+| total_products | total_stock | average_price | highest_price | lowest_price |
++----------------+-------------+---------------+---------------+--------------+
+|             12 |         732 |  41199.000000 |      91099.00 |       799.00 |
++----------------+-------------+---------------+---------------+--------------+
+1 row in set (0.00 sec)
+
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+| order_id | customer_name  | product_name       | quantity | line_total | payment_method | payment_status | employee_name |
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+|       10 | Pooja Jain     | HP Pavilion        |        1 |   62999.00 | Debit Card     | Pending        | Ravi Sharma   |
+|        9 | Vikas Mehta    | Men T-Shirt        |        1 |     799.00 | Cash           | Success        | Ankit Singh   |
+|        8 | Sneha Patel    | Boat Speaker       |        1 |    3499.00 | UPI            | Refunded       | Suresh Patel  |
+|        7 | Karan Malhotra | Samsung Galaxy S25 |        1 |   79999.00 | Credit Card    | Success        | Raj Kumar     |
+|        6 | Anjali Kapoor  | Microwave Oven     |        1 |   14999.00 | Net Banking    | Success        | Meena Gupta   |
+|        5 | Rohit Yadav    | Washing Machine    |        1 |   25999.00 | UPI            | Success        | Ankit Singh   |
+|        4 | Neha Gupta     | Nike Shoes         |        1 |    4999.00 | Cash           | Success        | Ravi Sharma   |
+|        3 | Priya Singh    | Sony Headphones    |        1 |    9999.00 | Debit Card     | Success        | Raj Kumar     |
+|        2 | Amit Verma     | Dell Inspiron      |        1 |   58999.00 | Credit Card    | Success        | Ankit Singh   |
+|        1 | Rahul Sharma   | iPhone 16          |        1 |   89999.00 | UPI            | Success        | Raj Kumar     |
+|        1 | Rahul Sharma   | Sony Headphones    |        1 |    7999.00 | UPI            | Success        | Raj Kumar     |
++----------+----------------+--------------------+----------+------------+----------------+----------------+---------------+
+11 rows in set (0.00 sec)
+
+mysql> SOURCE /docker-entrypoint-initdb.d/24_Optimization.sql
+Database changed
++----+-------------+----------+------------+------+------------------+------------------+---------+-------+------+----------+-------+
+| id | select_type | table    | partitions | type | possible_keys    | key              | key_len | ref   | rows | filtered | Extra |
++----+-------------+----------+------------+------+------------------+------------------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | products | NULL       | ref  | idx_product_name | idx_product_name | 602     | const |    1 |   100.00 | NULL  |
++----+-------------+----------+------------+------+------------------+------------------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+--------------------------------+
+| id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra                          |
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+--------------------------------+
+|  1 | SIMPLE      | NULL  | NULL       | NULL | NULL          | NULL | NULL    | NULL | NULL |     NULL | no matching row in const table |
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+--------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
++----------+-------------+-------------+---------------------+--------------+--------------+---------------------+
+| order_id | customer_id | employee_id | order_date          | order_status | total_amount | created_at          |
++----------+-------------+-------------+---------------------+--------------+--------------+---------------------+
+|        1 |           1 |           1 | 2026-01-05 00:00:00 | Confirmed    |     97998.00 | 2026-06-30 09:05:49 |
+|        2 |           2 |           2 | 2026-01-06 00:00:00 | Delivered    |     58999.00 | 2026-06-30 09:05:49 |
+|        3 |           3 |           1 | 2026-01-08 00:00:00 | Shipped      |      9999.00 | 2026-06-30 09:05:49 |
+|        4 |           4 |           3 | 2026-01-10 00:00:00 | Shipped      |      4999.00 | 2026-06-30 09:05:49 |
+|        5 |           5 |           2 | 2026-01-12 00:00:00 | Confirmed    |     25999.00 | 2026-06-30 09:05:49 |
+|        6 |           6 |           4 | 2026-01-14 00:00:00 | Delivered    |     14999.00 | 2026-06-30 09:05:49 |
+|        7 |           7 |           1 | 2026-01-16 00:00:00 | Delivered    |     79999.00 | 2026-06-30 09:05:49 |
+|        8 |           8 |           5 | 2026-01-18 00:00:00 | Cancelled    |      3499.00 | 2026-06-30 09:05:49 |
+|        9 |           9 |           2 | 2026-01-20 00:00:00 | Delivered    |       799.00 | 2026-06-30 09:05:49 |
+|       10 |          10 |           3 | 2026-01-22 00:00:00 | Pending      |     62999.00 | 2026-06-30 09:05:49 |
++----------+-------------+-------------+---------------------+--------------+--------------+---------------------+
+10 rows in set (0.00 sec)
+
++----------+-------------+--------------+
+| order_id | customer_id | total_amount |
++----------+-------------+--------------+
+|        1 |           1 |     97998.00 |
+|        2 |           2 |     58999.00 |
+|        3 |           3 |      9999.00 |
+|        4 |           4 |      4999.00 |
+|        5 |           5 |     25999.00 |
+|        6 |           6 |     14999.00 |
+|        7 |           7 |     79999.00 |
+|        8 |           8 |      3499.00 |
+|        9 |           9 |       799.00 |
+|       10 |          10 |     62999.00 |
++----------+-------------+--------------+
+10 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
++----+-------------+--------+------------+------+-----------------------------------------------+---------------------------+---------+-------+------+----------+-------+
+| id | select_type | table  | partitions | type | possible_keys                                 | key                       | key_len | ref   | rows | filtered | Extra |
++----+-------------+--------+------------+------+-----------------------------------------------+---------------------------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | orders | NULL       | ref  | idx_order_customer_status,idx_orders_customer | idx_order_customer_status | 4       | const |    1 |   100.00 | NULL  |
++----+-------------+--------+------------+------+-----------------------------------------------+---------------------------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
++----+-------------+----------+------------+-------+------------------------------+---------+---------+-------+------+----------+-------+
+| id | select_type | table    | partitions | type  | possible_keys                | key     | key_len | ref   | rows | filtered | Extra |
++----+-------------+----------+------------+-------+------------------------------+---------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | products | NULL       | const | PRIMARY,idx_product_covering | PRIMARY | 4       | const |    1 |   100.00 | NULL  |
++----+-------------+----------+------------+-------+------------------------------+---------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
++----+-------------+--------+------------+------+--------------------------------------------------------------------------+---------------------------+---------+-------------+------+----------+-------+
+| id | select_type | table  | partitions | type | possible_keys                                                            | key                       | key_len | ref         | rows | filtered | Extra |
++----+-------------+--------+------------+------+--------------------------------------------------------------------------+---------------------------+---------+-------------+------+----------+-------+
+|  1 | SIMPLE      | orders | NULL       | ref  | idx_order_customer_status,idx_orders_customer,idx_orders_customer_status | idx_order_customer_status | 6       | const,const |    1 |   100.00 | NULL  |
++----+-------------+--------+------------+------+--------------------------------------------------------------------------+---------------------------+---------+-------------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
++------------+--------------+-------------+------------+----------------+---------------------+
+| product_id | product_name | category_id | unit_price | stock_quantity | created_at          |
++------------+--------------+-------------+------------+----------------+---------------------+
+|          1 | iPhone 16    |           1 |   91099.00 |             49 | 2026-06-30 09:04:18 |
++------------+--------------+-------------+------------+----------------+---------------------+
+1 row in set (0.00 sec)
+
++------------+--------------+-------------+------------+----------------+---------------------+
+| product_id | product_name | category_id | unit_price | stock_quantity | created_at          |
++------------+--------------+-------------+------------+----------------+---------------------+
+|          1 | iPhone 16    |           1 |   91099.00 |             49 | 2026-06-30 09:04:18 |
++------------+--------------+-------------+------------+----------------+---------------------+
+1 row in set (0.01 sec)
+
++------------+--------------------+-------------+------------+----------------+---------------------+
+| product_id | product_name       | category_id | unit_price | stock_quantity | created_at          |
++------------+--------------------+-------------+------------+----------------+---------------------+
+|          1 | iPhone 16          |           1 |   91099.00 |             49 | 2026-06-30 09:04:18 |
+|          2 | Samsung Galaxy S25 |           1 |   79999.00 |             40 | 2026-06-30 09:04:18 |
+|          6 | Lenovo ThinkPad    |           2 |   75999.00 |             15 | 2026-06-30 09:04:18 |
+|          3 | OnePlus 13         |           1 |   64999.00 |             33 | 2026-06-30 09:04:18 |
+|          5 | HP Pavilion        |           2 |   62999.00 |             18 | 2026-06-30 09:04:18 |
+|          4 | Dell Inspiron      |           2 |   58999.00 |             17 | 2026-06-30 09:04:18 |
+|         11 | Washing Machine    |           5 |   25999.00 |             12 | 2026-06-30 09:04:18 |
+|         12 | Microwave Oven     |           5 |   14999.00 |             18 | 2026-06-30 09:04:18 |
+|          7 | Sony Headphones    |           3 |    9999.00 |            100 | 2026-06-30 09:04:18 |
+|         10 | Nike Shoes         |           4 |    4999.00 |             80 | 2026-06-30 09:04:18 |
++------------+--------------------+-------------+------------+----------------+---------------------+
+10 rows in set (0.00 sec)
+
++----+-------------+-------+------------+--------+--------------------------------------------------------------------------+---------+---------+---------------------------------------+------+----------+-------+
+| id | select_type | table | partitions | type   | possible_keys                                                            | key     | key_len | ref                                   | rows | filtered | Extra |
++----+-------------+-------+------------+--------+--------------------------------------------------------------------------+---------+---------+---------------------------------------+------+----------+-------+
+|  1 | SIMPLE      | o     | NULL       | ALL    | idx_order_customer_status,idx_orders_customer,idx_orders_customer_status | NULL    | NULL    | NULL                                  |   10 |   100.00 | NULL  |
+|  1 | SIMPLE      | c     | NULL       | eq_ref | PRIMARY                                                                  | PRIMARY | 4       | enterprise_ecommerce_db.o.customer_id |    1 |   100.00 | NULL  |
++----+-------------+-------+------------+--------+--------------------------------------------------------------------------+---------+---------+---------------------------------------+------+----------+-------+
+2 rows in set, 1 warning (0.00 sec)
+
++--------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table  | Non_unique | Key_name                   | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++--------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| orders |          0 | PRIMARY                    |            1 | order_id     | A         |          10 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | fk_orders_employee         |            1 | employee_id  | A         |           5 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_order_date             |            1 | order_date   | A         |          10 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_order_customer_status  |            1 | customer_id  | A         |          10 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_order_customer_status  |            2 | order_status | A         |          10 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_orders_customer        |            1 | customer_id  | A         |          10 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_orders_customer_status |            1 | customer_id  | A         |          10 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| orders |          1 | idx_orders_customer_status |            2 | order_status | A         |          10 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++--------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+8 rows in set (0.01 sec)
+
++----------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table    | Non_unique | Key_name                   | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++----------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| products |          0 | PRIMARY                    |            1 | product_id   | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_name           |            1 | product_name | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_price          |            1 | unit_price   | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_category_price |            1 | category_id  | A         |           5 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_category_price |            2 | unit_price   | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_covering       |            1 | product_id   | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_covering       |            2 | product_name | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| products |          1 | idx_product_covering       |            3 | unit_price   | A         |          12 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
++----------+------------+----------------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+8 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> 25_Final_Project.sqlBye
+@Yashs00n ➜ /workspaces/Enterprise_Ecommerce_SQL_Project (main) $ docker exec -it enterprise_mysql mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 131
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SOURCE /docker-entrypoint-initdb.d/25_Final_Project.sql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+ERROR 1265 (01000): Data truncated for column 'payment_method' at row 1
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++---------------+--------------+---------------------+---------------+--------------+
+| total_revenue | total_orders | average_order_value | highest_order | lowest_order |
++---------------+--------------+---------------------+---------------+--------------+
+|     410289.00 |           11 |        37299.000000 |      97998.00 |       799.00 |
++---------------+--------------+---------------------+---------------+--------------+
+1 row in set (0.00 sec)
+
++-------------+----------------+-------------+
+| customer_id | customer_name  | total_spent |
++-------------+----------------+-------------+
+|           1 | Rahul Sharma   |   147998.00 |
+|           7 | Karan Malhotra |    79999.00 |
+|          10 | Pooja Jain     |    62999.00 |
+|           2 | Amit Verma     |    58999.00 |
+|           5 | Rohit Yadav    |    25999.00 |
+|           6 | Anjali Kapoor  |    14999.00 |
+|           3 | Priya Singh    |     9999.00 |
+|           4 | Neha Gupta     |     4999.00 |
+|           8 | Sneha Patel    |     3499.00 |
+|           9 | Vikas Mehta    |      799.00 |
++-------------+----------------+-------------+
+10 rows in set (0.00 sec)
+
++--------------------+------------+----------+
+| product_name       | total_sold | revenue  |
++--------------------+------------+----------+
+| iPhone 16          |          1 | 89999.00 |
+| Samsung Galaxy S25 |          1 | 79999.00 |
+| HP Pavilion        |          1 | 62999.00 |
+| Dell Inspiron      |          1 | 58999.00 |
+| Washing Machine    |          1 | 25999.00 |
+| Sony Headphones    |          2 | 17998.00 |
+| Microwave Oven     |          1 | 14999.00 |
+| Nike Shoes         |          1 |  4999.00 |
+| Boat Speaker       |          1 |  3499.00 |
+| Men T-Shirt        |          1 |   799.00 |
++--------------------+------------+----------+
+10 rows in set (0.00 sec)
+
++--------------------+----------------+--------------+
+| product_name       | stock_quantity | stock_status |
++--------------------+----------------+--------------+
+| iPhone 16          |             48 | OK           |
+| Samsung Galaxy S25 |             40 | OK           |
+| OnePlus 13         |             33 | OK           |
+| Dell Inspiron      |             17 | LOW          |
+| HP Pavilion        |             18 | LOW          |
+| Lenovo ThinkPad    |             15 | LOW          |
+| Sony Headphones    |            100 | OK           |
+| Boat Speaker       |            150 | OK           |
+| Men T-Shirt        |            200 | OK           |
+| Nike Shoes         |             80 | OK           |
+| Washing Machine    |             12 | LOW          |
+| Microwave Oven     |             18 | LOW          |
++--------------------+----------------+--------------+
+12 rows in set (0.01 sec)
+
++---------------+--------------+-------------+
+| employee_name | total_orders | total_sales |
++---------------+--------------+-------------+
+| Raj Kumar     |            4 |   237996.00 |
+| Ankit Singh   |            3 |    85797.00 |
+| Ravi Sharma   |            2 |    67998.00 |
+| Meena Gupta   |            1 |    14999.00 |
+| Suresh Patel  |            1 |     3499.00 |
++---------------+--------------+-------------+
+5 rows in set (0.00 sec)
+
++----------+-------------+------------+----------------------------------------------------+---------------------+
+| audit_id | action_type | table_name | description                                        | action_time         |
++----------+-------------+------------+----------------------------------------------------+---------------------+
+|        5 | UPDATE      | products   | Updated Product : iPhone 16                        | 2026-06-30 09:54:56 |
+|        4 | REPORT      | orders     | Daily Order Report Generated : 2026-06-30 09:51:44 | 2026-06-30 09:51:44 |
+|        1 | INSERT      | customers  | Customer Added : Demo User                         | 2026-06-30 09:51:28 |
+|        2 | UPDATE      | products   | Updated Product : iPhone 16                        | 2026-06-30 09:51:28 |
+|        3 | DELETE      | customers  | Deleted Customer : Demo User                       | 2026-06-30 09:51:28 |
++----------+-------------+------------+----------------------------------------------------+---------------------+
+5 rows in set (0.00 sec)
+
++-----------+----------+--------+----------+-----------+
+| customers | products | orders | payments | employees |
++-----------+----------+--------+----------+-----------+
+|        10 |       12 |     11 |       10 |         5 |
++-----------+----------+--------+----------+-----------+
+1 row in set (0.00 sec)
+
++---------------+--------------+-----------------+----------------+-----------------+
+| total_revenue | total_orders | total_customers | total_products | avg_order_value |
++---------------+--------------+-----------------+----------------+-----------------+
+|     410289.00 |           11 |              10 |             12 |    37299.000000 |
++---------------+--------------+-----------------+----------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> 
