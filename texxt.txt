@@ -1,0 +1,932 @@
+Excellent Yash! 🔥
+
+Ab hum 23_Dashboard_Queries.sql banayenge.
+
+Ye file Power BI, Tableau, Excel Dashboard aur Java Admin Panel ke liye use hone wali SQL queries contain karegi.
+
+📄 23_Dashboard_Queries.sql
+/******************************************************************************
+*
+* PROJECT  : Enterprise E-Commerce SQL Project
+* FILE     : 23_Dashboard_Queries.sql
+* MODULE   : Dashboard Queries
+* AUTHOR   : Yash
+* VERSION  : 1.0
+*
+******************************************************************************/
+
+USE enterprise_ecommerce_db;
+
+-- ===========================================================
+-- 1. Dashboard KPI
+-- ===========================================================
+
+SELECT
+
+    (SELECT COUNT(*) FROM customers) AS total_customers,
+
+    (SELECT COUNT(*) FROM products) AS total_products,
+
+    (SELECT COUNT(*) FROM orders) AS total_orders,
+
+    (SELECT COUNT(*) FROM employees) AS total_employees,
+
+    (SELECT SUM(total_amount) FROM orders) AS total_revenue;
+
+-- ===========================================================
+-- 2. Monthly Sales Dashboard
+-- ===========================================================
+
+SELECT
+
+    MONTH(order_date) AS month_no,
+
+    MONTHNAME(order_date) AS month_name,
+
+    COUNT(order_id) AS total_orders,
+
+    SUM(total_amount) AS monthly_sales
+
+FROM orders
+
+GROUP BY MONTH(order_date),MONTHNAME(order_date)
+
+ORDER BY month_no;
+
+-- ===========================================================
+-- 3. Top 10 Customers
+-- ===========================================================
+
+SELECT
+
+    c.customer_id,
+
+    CONCAT(c.first_name,' ',c.last_name) AS customer_name,
+
+    COUNT(o.order_id) AS total_orders,
+
+    SUM(o.total_amount) AS total_spent
+
+FROM customers c
+
+LEFT JOIN orders o
+
+ON c.customer_id=o.customer_id
+
+GROUP BY c.customer_id
+
+ORDER BY total_spent DESC
+
+LIMIT 10;
+
+-- ===========================================================
+-- 4. Top Selling Products
+-- ===========================================================
+
+SELECT
+
+    p.product_name,
+
+    SUM(oi.quantity) AS total_quantity,
+
+    SUM(oi.line_total) AS revenue
+
+FROM products p
+
+INNER JOIN order_items oi
+
+ON p.product_id=oi.product_id
+
+GROUP BY p.product_name
+
+ORDER BY revenue DESC;
+
+-- ===========================================================
+-- 5. Category Wise Sales
+-- ===========================================================
+
+SELECT
+
+    c.category_name,
+
+    SUM(oi.line_total) AS total_sales
+
+FROM categories c
+
+INNER JOIN products p
+
+ON c.category_id=p.category_id
+
+INNER JOIN order_items oi
+
+ON p.product_id=oi.product_id
+
+GROUP BY c.category_name
+
+ORDER BY total_sales DESC;
+
+-- ===========================================================
+-- 6. Employee Performance Dashboard
+-- ===========================================================
+
+SELECT
+
+    e.employee_name,
+
+    COUNT(o.order_id) total_orders,
+
+    SUM(o.total_amount) total_sales
+
+FROM employees e
+
+LEFT JOIN orders o
+
+ON e.employee_id=o.employee_id
+
+GROUP BY e.employee_name
+
+ORDER BY total_sales DESC;
+
+-- ===========================================================
+-- 7. Payment Dashboard
+-- ===========================================================
+
+SELECT
+
+    payment_method,
+
+    COUNT(*) total_transactions,
+
+    SUM(amount) total_amount
+
+FROM payments
+
+GROUP BY payment_method;
+
+-- ===========================================================
+-- 8. Inventory Dashboard
+-- ===========================================================
+
+SELECT
+
+    product_name,
+
+    stock_quantity,
+
+    reorder_level,
+
+    CASE
+
+        WHEN stock_quantity=0 THEN 'Out Of Stock'
+
+        WHEN stock_quantity<=reorder_level THEN 'Low Stock'
+
+        ELSE 'Available'
+
+    END AS stock_status
+
+FROM products
+
+ORDER BY stock_quantity;
+
+-- ===========================================================
+-- 9. Order Status Dashboard
+-- ===========================================================
+
+SELECT
+
+    order_status,
+
+    COUNT(*) total_orders,
+
+    SUM(total_amount) total_sales
+
+FROM orders
+
+GROUP BY order_status;
+
+-- ===========================================================
+-- 10. Revenue Dashboard
+-- ===========================================================
+
+SELECT
+
+    SUM(total_amount) total_revenue,
+
+    AVG(total_amount) average_order,
+
+    MAX(total_amount) highest_order,
+
+    MIN(total_amount) lowest_order
+
+FROM orders;
+
+-- ===========================================================
+-- 11. Daily Sales Dashboard
+-- ===========================================================
+
+SELECT
+
+    order_date,
+
+    COUNT(*) total_orders,
+
+    SUM(total_amount) daily_sales
+
+FROM orders
+
+GROUP BY order_date
+
+ORDER BY order_date;
+
+-- ===========================================================
+-- 12. Customer City Dashboard
+-- ===========================================================
+
+SELECT
+
+    city,
+
+    COUNT(*) total_customers
+
+FROM customers
+
+GROUP BY city
+
+ORDER BY total_customers DESC;
+
+-- ===========================================================
+-- 13. Product Price Dashboard
+-- ===========================================================
+
+SELECT
+
+    product_name,
+
+    unit_price,
+
+    cost_price,
+
+    (unit_price-cost_price) profit
+
+FROM products
+
+ORDER BY profit DESC;
+
+-- ===========================================================
+-- 14. Dashboard Summary
+-- ===========================================================
+
+SELECT
+
+    COUNT(*) total_products,
+
+    SUM(stock_quantity) total_stock,
+
+    AVG(unit_price) average_price,
+
+    MAX(unit_price) highest_price,
+
+    MIN(unit_price) lowest_price
+
+FROM products;
+
+-- ===========================================================
+-- 15. Complete Dashboard Report
+-- ===========================================================
+
+SELECT
+
+    o.order_id,
+
+    CONCAT(c.first_name,' ',c.last_name) customer_name,
+
+    p.product_name,
+
+    oi.quantity,
+
+    oi.line_total,
+
+    pay.payment_method,
+
+    pay.payment_status,
+
+    e.employee_name
+
+FROM orders o
+
+INNER JOIN customers c
+
+ON o.customer_id=c.customer_id
+
+INNER JOIN employees e
+
+ON o.employee_id=e.employee_id
+
+INNER JOIN order_items oi
+
+ON o.order_id=oi.order_id
+
+INNER JOIN products p
+
+ON oi.product_id=p.product_id
+
+INNER JOIN payments pay
+
+ON o.order_id=pay.order_id
+
+ORDER BY o.order_date DESC;
+📚 Topics Covered
+✅ KPI Dashboard
+✅ Sales Dashboard
+✅ Customer Dashboard
+✅ Product Dashboard
+✅ Employee Dashboard
+✅ Payment Dashboard
+✅ Inventory Dashboard
+✅ Revenue Dashboard
+✅ Complete Business Dashboard
+🎯 Interview Questions
+Q1 What is KPI?
+
+KPI (Key Performance Indicator) is a measurable value used to track business performance.
+
+Examples:
+
+Total Revenue
+Total Orders
+Total Customers
+Profit
+Sales Growth
+Q2 Why are Dashboard Queries important?
+
+Because tools like:
+
+Power BI
+Tableau
+Excel
+Java Spring Boot Admin Panel
+React Dashboard
+
+all use SQL queries to fetch summarized business data.
+
+📊 Project Progress
+✅ 01 Database
+✅ 02 Master Tables
+✅ 03 Constraints
+✅ 04 Transaction Tables
+✅ 05 Master Data
+✅ 06 Transaction Data
+✅ 07 CRUD
+✅ 08 Filtering
+✅ 09 Functions
+✅ 10 Group By
+✅ 11 Joins
+✅ 12 Subqueries
+✅ 13 CTE
+✅ 14 Window Functions
+✅ 15 Views
+✅ 16 Indexes
+✅ 17 Transactions
+✅ 18 Stored Procedures
+✅ 19 User Defined Functions
+✅ 20 Triggers
+✅ 21 Events
+✅ 22 Reports
+✅ 23 Dashboard Queries
+
+⏳ 24 Optimization
+⏳ 25 Final Project
+🚀 Next File: 24_Optimization.sql
+
+Ye file Advanced SQL Performance Tuning ke liye hogi. Isme hum seekhenge:
+
+EXPLAIN
+EXPLAIN ANALYZE
+Query Cost
+Index Optimization
+Covering Index
+Composite Index
+Slow Query Optimization
+Best Practices
+Real Interview Scenarios
+
+Ye topic 3+ years SQL Developer, Data Engineer aur Java Backend interviews me bahut important hota hai.
+
+ne
+
+Great Yash 🔥
+
+Ab hum move kar rahe hain:
+
+📄 24_Optimization.sql
+
+Ye file SQL performance + real production tuning ka core topic hai.
+
+/******************************************************************************
+*
+* PROJECT  : Enterprise E-Commerce SQL Project
+* FILE     : 24_Optimization.sql
+* MODULE   : Query Optimization
+* AUTHOR   : Yash
+* VERSION  : 1.0
+*
+******************************************************************************/
+
+USE enterprise_ecommerce_db;
+
+-- ===========================================================
+-- 1. EXPLAIN BASIC QUERY
+-- ===========================================================
+
+EXPLAIN
+SELECT *
+FROM products
+WHERE product_name = 'iPhone 16';
+
+-- ===========================================================
+-- 2. EXPLAIN WITH INDEX CHECK
+-- ===========================================================
+
+EXPLAIN
+SELECT *
+FROM customers
+WHERE email = 'test@gmail.com';
+
+-- ===========================================================
+-- 3. Avoid SELECT *
+-- ===========================================================
+
+-- ❌ BAD PRACTICE
+SELECT *
+FROM orders;
+
+-- ✅ GOOD PRACTICE
+SELECT
+    order_id,
+    customer_id,
+    total_amount
+FROM orders;
+
+-- ===========================================================
+-- 4. Using Index Efficiently
+-- ===========================================================
+
+CREATE INDEX idx_orders_customer
+ON orders(customer_id);
+
+EXPLAIN
+SELECT
+    order_id,
+    total_amount
+FROM orders
+WHERE customer_id = 1;
+
+-- ===========================================================
+-- 5. Covering Index Example
+-- ===========================================================
+
+CREATE INDEX idx_product_covering
+ON products(product_id, product_name, unit_price);
+
+EXPLAIN
+SELECT
+    product_id,
+    product_name,
+    unit_price
+FROM products
+WHERE product_id = 1;
+
+-- ===========================================================
+-- 6. Slow Query Optimization Example
+-- ===========================================================
+
+-- ❌ Slow Query
+SELECT *
+FROM orders
+WHERE YEAR(order_date) = 2025;
+
+-- ✅ Optimized Query (Index Friendly)
+SELECT *
+FROM orders
+WHERE order_date >= '2025-01-01'
+AND order_date < '2026-01-01';
+
+-- ===========================================================
+-- 7. Composite Index Optimization
+-- ===========================================================
+
+CREATE INDEX idx_orders_customer_status
+ON orders(customer_id, order_status);
+
+EXPLAIN
+SELECT *
+FROM orders
+WHERE customer_id = 1
+AND order_status = 'Delivered';
+
+-- ===========================================================
+-- 8. Avoid Functions in WHERE Clause
+-- ===========================================================
+
+-- ❌ BAD
+SELECT *
+FROM products
+WHERE UPPER(product_name) = 'IPHONE 16';
+
+-- ✅ GOOD
+SELECT *
+FROM products
+WHERE product_name = 'iPhone 16';
+
+-- ===========================================================
+-- 9. LIMIT for Performance
+-- ===========================================================
+
+SELECT *
+FROM products
+ORDER BY unit_price DESC
+LIMIT 10;
+
+-- ===========================================================
+-- 10. Join Optimization
+-- ===========================================================
+
+EXPLAIN
+SELECT
+    o.order_id,
+    c.first_name,
+    o.total_amount
+FROM orders o
+INNER JOIN customers c
+ON o.customer_id = c.customer_id;
+
+-- ===========================================================
+-- 11. Index Usage Check
+-- ===========================================================
+
+SHOW INDEX FROM orders;
+
+SHOW INDEX FROM products;
+
+-- ===========================================================
+-- 12. Remove Unused Index
+-- ===========================================================
+
+DROP INDEX idx_product_covering
+ON products;
+🧠 Key Concepts Covered
+🔥 1. EXPLAIN
+Query ka execution plan dikhata hai
+Kaunsa index use ho raha hai pata chalta hai
+🔥 2. Index Optimization
+WHERE clause me fast search
+JOIN performance improve
+🔥 3. Covering Index
+Query fully index se solve hoti hai (fastest)
+🔥 4. Bad vs Good Query
+❌ Bad	✅ Good
+SELECT *	Select required columns
+Function in WHERE	Direct column comparison
+YEAR() function	Range filter
+🔥 5. Range Query Optimization
+order_date BETWEEN '2025-01-01' AND '2025-12-31'
+🎯 Interview Questions
+Q1 What is Query Optimization?
+
+👉 Query Optimization means improving SQL performance by reducing execution time and resource usage.
+
+Q2 Why avoid SELECT *?
+Extra data load
+Slower performance
+Memory waste
+Q3 What is Covering Index?
+
+👉 When query result is fully satisfied using index only (no table scan).
+
+Q4 Why is EXPLAIN used?
+
+👉 To analyze query execution plan.
+
+📊 Progress
+✅ 01 Database
+✅ 02 Master Tables
+✅ 03 Constraints
+✅ 04 Transaction Tables
+✅ 05 Master Data
+✅ 06 Transaction Data
+✅ 07 CRUD
+✅ 08 Filtering
+✅ 09 Functions
+✅ 10 Group By
+✅ 11 Joins
+✅ 12 Subqueries
+✅ 13 CTE
+✅ 14 Window Functions
+✅ 15 Views
+✅ 16 Indexes
+✅ 17 Transactions
+✅ 18 Stored Procedures
+✅ 19 User Defined Functions
+✅ 20 Triggers
+✅ 21 Events
+✅ 22 Reports
+✅ 23 Dashboard Queries
+✅ 24 Optimization
+
+⏳ 25 Final Project
+🚀 FINAL STEP: 25_Final_Project.sql
+
+Ye last file hoga 🔥
+
+Isme hum:
+
+Full database structure connect karenge
+Real-world e-commerce flow banayenge
+End-to-end system:
+Customer → Order → Payment → Stock Update
+Stored Procedure + Trigger + View + Index sab integrate karenge
+
+👉 Ye file tumhara portfolio-ready enterprise SQL project banayegi jo GitHub pe daal sakte ho aur interviews me directly show kar sakte ho.
+
+next
+
+Great Yash 🔥
+
+Ab hum FINAL FILE pe aa gaye hain:
+
+📄 25_Final_Project.sql
+
+👉 Ye tumhara complete enterprise e-commerce SQL system hai.
+
+🚀 FINAL PROJECT (END-TO-END SYSTEM)
+/******************************************************************************
+*
+* PROJECT  : Enterprise E-Commerce SQL Project
+* FILE     : 25_Final_Project.sql
+* MODULE   : Final Integration
+* AUTHOR   : Yash
+* VERSION  : 1.0
+*
+******************************************************************************/
+
+USE enterprise_ecommerce_db;
+
+-- ===========================================================
+-- 1. FULL CUSTOMER ORDER FLOW
+-- ===========================================================
+
+START TRANSACTION;
+
+-- Step 1: Insert Order
+INSERT INTO orders
+(
+    customer_id,
+    employee_id,
+    order_date,
+    order_status,
+    total_amount
+)
+VALUES
+(
+    1,
+    1,
+    NOW(),
+    'Pending',
+    50000
+);
+
+-- Step 2: Reduce Stock
+UPDATE products
+SET stock_quantity = stock_quantity - 1
+WHERE product_id = 1;
+
+-- Step 3: Insert Payment
+INSERT INTO payments
+(
+    order_id,
+    payment_method,
+    amount,
+    payment_status
+)
+VALUES
+(
+    LAST_INSERT_ID(),
+    'Card',
+    50000,
+    'Success'
+);
+
+COMMIT;
+
+-- ===========================================================
+-- 2. COMPLETE BUSINESS VIEW
+-- ===========================================================
+
+CREATE OR REPLACE VIEW vw_complete_order_details AS
+
+SELECT
+
+    o.order_id,
+    c.first_name AS customer_first_name,
+    c.last_name AS customer_last_name,
+    e.employee_name,
+    p.product_name,
+    oi.quantity,
+    oi.line_total,
+    pay.payment_method,
+    pay.payment_status,
+    o.order_status,
+    o.order_date
+
+FROM orders o
+
+INNER JOIN customers c
+ON o.customer_id = c.customer_id
+
+INNER JOIN employees e
+ON o.employee_id = e.employee_id
+
+INNER JOIN order_items oi
+ON o.order_id = oi.order_id
+
+INNER JOIN products p
+ON oi.product_id = p.product_id
+
+INNER JOIN payments pay
+ON o.order_id = pay.order_id;
+
+-- ===========================================================
+-- 3. FINAL SALES REPORT
+-- ===========================================================
+
+SELECT
+
+    SUM(total_amount) AS total_revenue,
+    COUNT(order_id) AS total_orders,
+    AVG(total_amount) AS average_order_value,
+    MAX(total_amount) AS highest_order,
+    MIN(total_amount) AS lowest_order
+
+FROM orders;
+
+-- ===========================================================
+-- 4. TOP CUSTOMER ANALYSIS
+-- ===========================================================
+
+SELECT
+
+    c.customer_id,
+    CONCAT(c.first_name,' ',c.last_name) AS customer_name,
+    SUM(o.total_amount) AS total_spent
+
+FROM customers c
+
+INNER JOIN orders o
+ON c.customer_id = o.customer_id
+
+GROUP BY c.customer_id
+
+ORDER BY total_spent DESC;
+
+-- ===========================================================
+-- 5. PRODUCT PERFORMANCE ANALYSIS
+-- ===========================================================
+
+SELECT
+
+    p.product_name,
+    SUM(oi.quantity) AS total_sold,
+    SUM(oi.line_total) AS revenue
+
+FROM products p
+
+INNER JOIN order_items oi
+ON p.product_id = oi.product_id
+
+GROUP BY p.product_name
+
+ORDER BY revenue DESC;
+
+-- ===========================================================
+-- 6. INVENTORY STATUS FINAL CHECK
+-- ===========================================================
+
+SELECT
+
+    product_name,
+    stock_quantity,
+
+    CASE
+
+        WHEN stock_quantity = 0 THEN 'OUT OF STOCK'
+        WHEN stock_quantity < 10 THEN 'CRITICAL'
+        WHEN stock_quantity < 20 THEN 'LOW'
+        ELSE 'OK'
+
+    END AS stock_status
+
+FROM products;
+
+-- ===========================================================
+-- 7. EMPLOYEE PERFORMANCE FINAL REPORT
+-- ===========================================================
+
+SELECT
+
+    e.employee_name,
+    COUNT(o.order_id) AS total_orders,
+    SUM(o.total_amount) AS total_sales
+
+FROM employees e
+
+LEFT JOIN orders o
+ON e.employee_id = o.employee_id
+
+GROUP BY e.employee_name
+
+ORDER BY total_sales DESC;
+
+-- ===========================================================
+-- 8. AUDIT LOG FINAL CHECK
+-- ===========================================================
+
+SELECT *
+
+FROM audit_log
+
+ORDER BY action_time DESC;
+
+-- ===========================================================
+-- 9. SYSTEM HEALTH CHECK
+-- ===========================================================
+
+SELECT
+
+    (SELECT COUNT(*) FROM customers) AS customers,
+    (SELECT COUNT(*) FROM products) AS products,
+    (SELECT COUNT(*) FROM orders) AS orders,
+    (SELECT COUNT(*) FROM payments) AS payments,
+    (SELECT COUNT(*) FROM employees) AS employees;
+
+-- ===========================================================
+-- 10. FINAL DASHBOARD OUTPUT
+-- ===========================================================
+
+SELECT
+
+    (SELECT SUM(total_amount) FROM orders) AS total_revenue,
+
+    (SELECT COUNT(*) FROM orders) AS total_orders,
+
+    (SELECT COUNT(*) FROM customers) AS total_customers,
+
+    (SELECT COUNT(*) FROM products) AS total_products,
+
+    (SELECT AVG(total_amount) FROM orders) AS avg_order_value;
+🏆 WHAT YOU HAVE BUILT
+
+Ab tumhare paas ek REAL INDUSTRY LEVEL SQL SYSTEM hai:
+
+💼 Features:
+🛒 E-commerce Order System
+💳 Payment Processing
+📦 Inventory Management
+👥 Customer Management
+👨‍💼 Employee Performance
+📊 Business Dashboard
+📈 Sales Analytics
+🔐 Transaction Safety
+⚡ Performance Optimization
+🧾 Audit Logging System
+🚀 REAL-WORLD IMPACT
+
+Ye project ab tum:
+
+GitHub pe upload kar sakte ho
+Resume me daal sakte ho
+Interview me explain kar sakte ho
+Java Spring Boot backend ke saath connect kar sakte ho
+🎯 FINAL SKILL LEVEL
+SQL BEGINNER ❌
+SQL INTERMEDIATE ❌
+SQL ADVANCED ❌
+
+👉 YOU ARE NOW ENTERPRISE LEVEL SQL DEVELOPER ✅🔥
+🚀 Next Step (IMPORTANT)
+
+Agar tum chaho to next hum ye kar sakte hain:
+
+1. 🔥 Java + Spring Boot Integration (BEST NEXT STEP)
+JDBC / JPA
+@Transactional
+Repository layer
+Service layer
+2. 📊 Power BI / Dashboard Visualization
+Graphs
+KPI dashboard
+3. ☁️ Deployment Setup
+Docker + MySQL
+GitHub Codespaces setup
+
+Bas batao next move kya karna hai.
